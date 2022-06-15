@@ -8,7 +8,6 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using PlanningPoker.Domain;
 using PlanningPoker.Domain.DataTransferObjects;
-using PlanningPoker.Domain.DomainModels;
 
 namespace PlanningPoker.Api.Functions.Sessions
 {
@@ -25,20 +24,28 @@ namespace PlanningPoker.Api.Functions.Sessions
                 Constants.PokerHub);
 
             var sessionPayload = await req.Content.ReadAsAsync<CreateSessionDto>();
-            var session = Session.Create();
-            log.LogInformation("Created a new session with code {code}", session.Code);
+            var created = string.IsNullOrWhiteSpace(sessionPayload.Code);
+            var sessionCode = sessionPayload.Code ?? Randomizer.GenerateSessionCode();
+
+            log.LogInformation("Created a new session with code {code}", sessionCode);
 
             var userId = Guid.NewGuid().ToString();
 
-            var clientAccess = await psClient.GetClientAccessUriAsync(userId: userId,
-                roles: new[] {$"webpubsub.sendToGroup.{session.Code}", $"webpubsub.joinLeaveGroup.{session.Code}" });
+            var clientAccess = await psClient.GetClientAccessUriAsync(
+                userId: userId,
+                roles: new[]
+                {
+                    $"webpubsub.sendToGroup.{sessionCode}", 
+                    $"webpubsub.joinLeaveGroup.{sessionCode}"
+                });
 
             var responseDto = new SessionDetailsDto
             {
-                Code = session.Code,
+                Code = sessionCode,
                 ConnectionUrl = clientAccess.ToString(),
                 UserId = userId,
-                Username = sessionPayload.Name
+                Username = sessionPayload.Name,
+                OwningCode = created ? sessionCode : string.Empty
             };
 
             return new CreatedResult($"/url/{responseDto.Code}", responseDto);

@@ -10,12 +10,4 @@
     <PackageReference Include="HexMaster.DomainDrivenDesign" Version="0.1.23" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\PlanningPoker.Shared\PlanningPoker.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="EventPayloads\" />
-  </ItemGroup>
-
 </Project>

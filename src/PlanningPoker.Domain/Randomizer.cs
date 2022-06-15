@@ -7,7 +7,7 @@ public class Randomizer
     private static Random random;
     private const string Pool = "abcdefghijklmnopqrstuvwxyz0123456789";
 
-    internal static string GenerateSessionCode()
+    public static string GenerateSessionCode()
     {
         var sessionCode = new StringBuilder();
         do

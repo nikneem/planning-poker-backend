@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31410.414
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanningPoker.Domain", "PlanningPoker.Domain\PlanningPoker.Domain.csproj", "{28AF9631-1AF8-4EEB-A73C-B9F86CCC2B29}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanningPoker.Shared", "PlanningPoker.Shared\PlanningPoker.Shared.csproj", "{BB11219A-149E-4540-9187-FBDD40608C01}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanningPoker.Api", "PlanningPoker.Api\PlanningPoker.Api.csproj", "{286F82FC-C9B3-4C33-9327-901284EAEE51}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{28AF9631-1AF8-4EEB-A73C-B9F86CCC2B29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28AF9631-1AF8-4EEB-A73C-B9F86CCC2B29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28AF9631-1AF8-4EEB-A73C-B9F86CCC2B29}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB11219A-149E-4540-9187-FBDD40608C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB11219A-149E-4540-9187-FBDD40608C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB11219A-149E-4540-9187-FBDD40608C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB11219A-149E-4540-9187-FBDD40608C01}.Release|Any CPU.Build.0 = Release|Any CPU
 		{286F82FC-C9B3-4C33-9327-901284EAEE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{286F82FC-C9B3-4C33-9327-901284EAEE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{286F82FC-C9B3-4C33-9327-901284EAEE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
